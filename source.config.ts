@@ -1,5 +1,6 @@
+import { highlight } from "fumadocs-core/highlight";
 import { defineDocs, defineConfig } from "fumadocs-mdx/config";
-import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
 
 // Options: https://fumadocs.vercel.app/docs/mdx/collections#define-docs
 export const docs = defineDocs({
@@ -18,6 +19,7 @@ export default defineConfig({
         light: "github-light",
         dark: "github-dark",
       },
+      transformers: [...(rehypeCodeDefaultOptions.transformers ?? [])],
     },
   },
 });

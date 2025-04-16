@@ -29,8 +29,9 @@ console.log("Hello");
 export default defineConfig({
   mdxOptions: {
     // MDX options
+    //[!code highlight:7]
     rehypeCodeOptions: {
-      inline: "tailing-curly-colon", // or false
+      inline: "tailing-curly-colon", // or false [!code ++]
       themes: {
         light: "github-light",
         dark: "github-dark",
@@ -45,3 +46,137 @@ export default defineConfig({
 `console.log("hello world"){:js}`
 
 可以看到，`{:js}` 给解析的内联代码添加了 js 语言的样式。
+
+## 转换器 [#transformers]
+
+在 `source.config.ts` 中配置 `rehypeCodeOptions.transformers` 来启用默认转换器，比如标记增减行、行高亮等。
+
+```ts title="source.config.ts"
+export default defineConfig({
+  mdxOptions: {
+    // MDX options
+    rehypeCodeOptions: {
+      //[!code ++]
+      transformers: [...(rehypeCodeDefaultOptions.transformers ?? [])],
+    },
+  },
+});
+```
+
+### 增减行 [#line-addition-deletion]
+
+使用 `[!code ++]` 和 `[!code --]` 来标记增删的行。
+
+````mdx
+```title="app.ts"
+console.log("hewwo"); // [!code --]
+console.log("hello"); // [!code ++]
+console.log("goodbye");
+```
+````
+
+渲染后的结果是：
+
+```ts title="app.ts"
+console.log("hewwo"); // [!code --]
+console.log("hello"); // [!code ++]
+console.log("goodbye");
+```
+
+也支持使用 `![!code ++:number]{:mdx}` 或 `![code --:number]` 同时渲染连续的行，其中 `number` 指定连续渲染的行数：
+
+```mdx
+console.log("hewwo");
+// [!code ++:2]
+console.log("hello");
+console.log("goodbye");
+```
+
+渲染后的结果是：
+
+```ts
+console.log("hewwo");
+// [!code ++:2]
+console.log("hello");
+console.log("goodbye");
+```
+
+### 行高亮 [#line-highlight]
+
+使用 `[!code highlight]{:mdx}` 来渲染单行的高亮显示，使用 `[!code highlight:number]{:mdx}` 来渲染多行的高亮显示。
+
+#### 渲染单行 [#line-highlight-single]
+
+使用 `[!code highlight]{:md}` 来高亮显示行：
+
+````mdx
+```title="app.ts"
+console.log("Not highlighted");
+console.log("Highlighted"); // [!code highlight]
+console.log("Not highlighted");
+```
+````
+
+渲染后的结果是：
+
+```ts title="app.ts"
+console.log("Not highlighted");
+console.log("Highlighted"); // [!code highlight]
+console.log("Not highlighted");
+```
+
+#### 渲染多行 [#line-highlight-multiple]
+
+使用 `[!code highlight:number]{:md}`，其中 `number` 用于指定接下来有多少行被渲染成高亮：
+
+```mdx
+console.log("Not highlighted");
+// [!code highlight:2]
+console.log("Highlighted 1");
+console.log("Highlighted 2");
+console.log("Not highlighted");
+```
+
+渲染后的结果是：
+
+```ts title="app.ts"
+console.log("Not highlighted");
+// [!code highlight:2]
+console.log("Highlighted 1");
+console.log("Highlighted 2");
+console.log("Not highlighted");
+```
+
+### 标记单词 [#marking-words]
+
+使用 `[!code word:Hello]` 在接下来的代码高亮所有的 `Hello`。
+
+```mdx
+// [!code word:Hello]
+const message = "Hello World";
+console.log(message); // prints Hello World
+```
+
+渲染后的结果是：
+
+```ts
+// [!code word:Hello]
+const message = "Hello World";
+console.log(message); // prints Hello World
+```
+
+也可以通过 `[!code word:Hello:number]`，通过提供 `number` 来指定需要渲染的次数：
+
+```mdx
+// [!code word:Hello:1]
+const message = 'Hello World'
+console.log(message) // prints Hello World
+```
+
+渲染后的结果是：
+
+```ts
+// [!code word:Hello:1]
+const message = "Hello World";
+console.log(message); // prints Hello World
+```
