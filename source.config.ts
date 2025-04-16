@@ -1,4 +1,3 @@
-import { highlight } from "fumadocs-core/highlight";
 import { defineDocs, defineConfig } from "fumadocs-mdx/config";
 import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
 
