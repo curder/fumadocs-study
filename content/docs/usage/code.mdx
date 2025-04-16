@@ -1,0 +1,47 @@
+---
+title: "代码"
+description: "代码语法高亮显示器"
+---
+
+Fumadocs 内置了 [`Shiki`](https://shiki.style/) 代码高亮器。
+
+## 代码标题 [#code-title]
+
+解析 `title` 字符串，并将标题属性添加到 `pre` 元素中。
+
+````mdx
+```js title="app.ts"
+console.log("Hello");
+```
+````
+
+渲染后的结果是：
+
+```js title="app.ts"
+console.log("Hello");
+```
+
+## 内联代码 [#inline-code]
+
+在 `source.config.ts` 中配置 `rehypeCodeOptions.inline{:json}` 指定内联代码配置为 `tailing-curly-colon`，启用内联样式。
+
+```ts title="source.config.ts"
+export default defineConfig({
+  mdxOptions: {
+    // MDX options
+    rehypeCodeOptions: {
+      inline: "tailing-curly-colon", // or false
+      themes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
+    },
+  },
+});
+```
+
+渲染后的结果是：
+
+`console.log("hello world"){:js}`
+
+可以看到，`{:js}` 给解析的内联代码添加了 js 语言的样式。
