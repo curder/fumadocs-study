@@ -1,0 +1,24 @@
+---
+title: 图片引用
+description: 当前章节介绍在 `fumadocs` 中如何引用本地图片
+---
+
+## 绝对路径 [#absolute-path]
+
+当图片存放在 `/public` 目录下的 `hello.png` ，使用下面的方式可以引用图片。
+
+```md
+![Hello](/hello.png)
+```
+
+## 相对路径 [#relative-path]
+
+当图片存放在当前目录时，可以使用下面的方式引用它
+
+```md
+![Hello](./hello.png)
+
+<!-- 当图片存放在 ./images 目录下时 -->
+
+![Hello](./images/hello.png)
+```
