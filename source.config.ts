@@ -1,4 +1,8 @@
-import { defineDocs, defineConfig } from "fumadocs-mdx/config";
+import {
+  defineDocs,
+  defineConfig,
+  frontmatterSchema,
+} from "fumadocs-mdx/config";
 import {
   rehypeCodeDefaultOptions,
   remarkAdmonition,
@@ -9,9 +13,16 @@ import {
   transformerMetaWordHighlight,
   transformerNotationErrorLevel,
 } from "@shikijs/transformers";
+import { z } from "zod";
 // Options: https://fumadocs.vercel.app/docs/mdx/collections#define-docs
 export const docs = defineDocs({
   dir: "content/docs",
+  docs: {
+    schema: frontmatterSchema.extend({
+      preview: z.string().optional(),
+      index: z.boolean().default(false),
+    }),
+  },
 });
 
 export default defineConfig({

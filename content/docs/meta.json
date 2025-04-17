@@ -5,6 +5,7 @@
     "heading",
     "image",
     "code",
-    "alter"
+    "alter",
+    "components"
   ]
 }
