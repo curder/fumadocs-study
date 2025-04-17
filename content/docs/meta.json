@@ -1,3 +1,10 @@
 {
-  "pages": ["installation", "---常见用法---", "title", "image", "code", "alter"]
+  "pages": [
+    "installation",
+    "---常见用法---",
+    "heading",
+    "image",
+    "code",
+    "alter"
+  ]
 }
