@@ -18,8 +18,8 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 
 ### Accordions [#accordions]
 
-| 属性             | 类型                             | 默认值                                            |
-|----------------|--------------------------------|------------------------------------------------|
+| 属性           | 类型                           | 默认值                                         |
+| -------------- | ------------------------------ | ---------------------------------------------- |
 | `asChild?`     | `boolean`                      | <Minus width="16" className="text-gray-400" /> |
 | `type`         | `"single"` \| `"multiple"`     | <Minus width="16" className="text-gray-400" /> |
 | `disabled?`    | `boolean`                      | `false`                                        |
@@ -28,8 +28,8 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 
 ### Accordion [#accordion]
 
-| 属性          | 类型        | 默认值                                            |
-|-------------|-----------|------------------------------------------------|
+| 属性        | 类型      | 默认值                                         |
+| ----------- | --------- | ---------------------------------------------- |
 | `asChild?`  | `boolean` | <Minus width="16" className="text-gray-400" /> |
 | `disabled?` | `boolean` | `false`                                        |
 
@@ -42,19 +42,20 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 <Tabs items={['Preview', 'Source Code']}>
     <Tab value="Preview">
         <Accordions type="single" defaultValue="item-2">
-            <Accordion value="item-1">Item 1</Accordion>
-            <Accordion value="item-2">Item 2</Accordion>
+            <Accordion title="Item 1" value="item-1">Item 1 Content</Accordion>
+            <Accordion title="Item 2" value="item-2">Item 2 Content</Accordion>
         </Accordions>
     </Tab>
 
     <Tab value="Source Code">
         ```mdx /defaultValue="item-2"/
         <Accordions type="single" defaultValue="item-2">
-            <Accordion value="item-1">Item 1</Accordion>
-            <Accordion value="item-2">Item 2</Accordion>
+            <Accordion title="Item 1" value="item-1">Item 1 Content</Accordion>
+            <Accordion title="Item 2" value="item-2">Item 2 Content</Accordion>
         </Accordions>
         ```
     </Tab>
+
 </Tabs>
 
 ### 允许折叠所有项目 [#allow-collapsing-all-items]
@@ -63,22 +64,22 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 
 <Tabs items={["Preview", "Source Code"]}>
     <Tab value={"Preview"}>
-        <Accordions type="single" collapsible>
-            <Accordion value="item-1">Item 1</Accordion>
-            <Accordion value="item-2">Item 2</Accordion>
+        <Accordions type="single" collapsible="true">
+            <Accordion title="Item 1" value="item-1">Item 1 Content</Accordion>
+            <Accordion title="Item 2" value="item-2">Item 2 Content</Accordion>
         </Accordions>
     </Tab>
 
     <Tab value={"Source Code"}>
         ```mdx /collapsible/
-        <Accordions type="single" collapsible>
-            <Accordion value="item-1">Item 1</Accordion>
-            <Accordion value="item-2">Item 2</Accordion>
+        <Accordions type="single" collapsible="true">
+            <Accordion title="Item 1" value="item-1">Item 1 Content</Accordion>
+            <Accordion title="Item 2" value="item-2">Item 2 Content</Accordion>
         </Accordions>
         ```
     </Tab>
-</Tabs>
 
+</Tabs>
 
 ### 同时打开多个项目 [#multiple-items-open-at-the-same-time]
 
@@ -86,18 +87,19 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 
 <Tabs items={["Preview", "Source Code"]}>
     <Tab value={"Preview"}>
-        <Accordions type="multiple" collapsible>
-            <Accordion value="item-1">Item 1</Accordion>
-            <Accordion value="item-2">Item 2</Accordion>
+        <Accordions type="multiple">
+            <Accordion title="Item 1" value="item-1">Item 1 Content</Accordion>
+            <Accordion title="Item 2" value="item-2">Item 2 Content</Accordion>
         </Accordions>
     </Tab>
 
     <Tab value={"Source Code"}>
         ```mdx /type="multiple"/
         <Accordions type="multiple">
-            <Accordion value="item-1">Item 1</Accordion>
-            <Accordion value="item-2">Item 2</Accordion>
+            <Accordion title="Item 1" value="item-1">Item 1 Content</Accordion>
+            <Accordion title="Item 2" value="item-2">Item 2 Content</Accordion>
         </Accordions>
         ```
     </Tab>
+
 </Tabs>

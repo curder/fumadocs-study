@@ -30,7 +30,6 @@ export default async function Page(props: {
   if (!page) notFound();
 
   const preview = page.data.preview;
-  console.log(preview);
   const MDXContent = page.data.body;
 
   return (
