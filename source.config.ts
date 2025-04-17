@@ -1,5 +1,8 @@
 import { defineDocs, defineConfig } from "fumadocs-mdx/config";
-import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
+import {
+  rehypeCodeDefaultOptions,
+  remarkAdmonition,
+} from "fumadocs-core/mdx-plugins";
 import {
   transformerNotationFocus,
   transformerMetaHighlight,
@@ -31,5 +34,6 @@ export default defineConfig({
         transformerMetaWordHighlight(),
       ],
     },
+    remarkPlugins: [remarkAdmonition],
   },
 });

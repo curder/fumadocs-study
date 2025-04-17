@@ -1,0 +1,100 @@
+---
+title: "警告"
+descrition: "Fumadocs 中使用警告"
+---
+
+Fumadocs 中使用 `Callout` 组件来显示警告。
+
+## 基本用法 [#basic-usage]
+
+渲染警告 `warn`、`info` 和 `error`。
+
+````mdx
+```tsx
+<Callout type="warn" title="警告 warn">
+  这是一个警告
+</Callout>
+```
+````
+
+`type` 支持的值：`warn`、`info` 和 `error`。
+
+同时也支持自定义标题，使用 `title` 属性。
+
+它们渲染后的结果是：
+
+<Callout type="warn" title="警告 warn">
+  这是一个警告
+</Callout>
+
+<Callout type="info" title="温馨提示 info">
+  这是一个提示
+</Callout>
+
+<Callout type="error" title="错误提示 error">
+  这是一个错误
+</Callout>
+
+## Admonition 语法 [#admonition-syntax]
+
+尽管推荐使用 `Callout` 组件，但也支持使用 Admonition 语法来渲染警告。
+
+但是需要配置 `remarkAdmonition` 插件。
+
+```ts title="source.config.ts"
+import {
+  remarkAdmonition, // [!code ++]
+} from "fumadocs-core/mdx-plugins";
+
+export default defineConfig({
+  mdxOptions: {
+    // MDX options
+    // ...
+    remarkPlugins: [remarkAdmonition], // [!code ++]
+  },
+});
+```
+
+然后就可以使用 Admonition 语法来渲染警告了。
+
+```mdx
+{/* 警告 */}
+:::warn[警告 warn]
+
+这是一个警告
+
+:::
+{/* 提示 */}
+:::info[温馨提示 info]
+
+这是一个提示
+
+:::
+
+{/* 错误 */}
+:::danger[错误提示 danger]
+
+这是一个错误
+
+:::
+```
+
+分别渲染下面的结果：
+
+:::warn[警告 warn]
+
+这是一个警告
+
+:::
+
+:::info[温馨提示 info]
+
+这是一个提示
+
+:::
+
+:::danger[错误提示 danger]
+
+这是一个错误
+
+:::
