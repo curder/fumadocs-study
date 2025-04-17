@@ -3,6 +3,7 @@ import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
 import {
   transformerNotationFocus,
   transformerMetaHighlight,
+  transformerMetaWordHighlight,
   transformerNotationErrorLevel,
 } from "@shikijs/transformers";
 // Options: https://fumadocs.vercel.app/docs/mdx/collections#define-docs
@@ -24,13 +25,10 @@ export default defineConfig({
       },
       transformers: [
         ...(rehypeCodeDefaultOptions.transformers ?? []),
-        transformerNotationFocus({
-          matchAlgorithm: "v3",
-        }),
-        transformerNotationErrorLevel({
-          matchAlgorithm: "v3",
-        }),
+        transformerNotationFocus(),
+        transformerNotationErrorLevel(),
         transformerMetaHighlight(),
+        transformerMetaWordHighlight(),
       ],
     },
   },

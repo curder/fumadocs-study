@@ -206,6 +206,47 @@ const message = "Hello World";
 console.log(message); // prints Hello World
 ```
 
+### 标记单词 `/Word/` [#marking-words-regex]
+
+除了使用 `[!code word:Hello]` 语法标记单词之外，还可以使用 `/Word/` 来标记单词。
+
+但是默认 Fumadocs 不支持 `/Word/` 语法，需要在 `source.config.ts` 中配置 `rehypeCodeOptions.transformers` 来启用默认转换器：
+
+```ts title="source.config.ts"
+import {
+  transformerMetaWordHighlight, // [!code ++]
+} from "@shikijs/transformers";
+export default defineConfig({
+  mdxOptions: {
+    // MDX options
+    rehypeCodeOptions: {
+      transformers: [
+        ...(rehypeCodeDefaultOptions.transformers ?? []),
+        transformerMetaWordHighlight(), // [!code ++]
+      ],
+    },
+  },
+});
+```
+
+这样就可以使用 `/Word/` 语法来标记单词了：
+
+````mdx
+```js /Hello/
+const msg = "Hello World";
+console.log(msg);
+console.log(msg); // 打印 Hello World
+```
+````
+
+渲染后的结果是：
+
+```js /Hello/
+const msg = "Hello World";
+console.log(msg);
+console.log(msg); // 打印 Hello World
+```
+
 ### 代码行聚焦 `focus` [#code-focus]
 
 使用 `[!code focus]` 语法来聚焦代码行：
@@ -220,7 +261,7 @@ export default defineConfig({
   mdxOptions: {
     transformers: [
       ...(rehypeCodeDefaultOptions.transformers ?? []),
-      transformerNotationFocus({ matchAlgorithm: "v3" }), // [!code ++]
+      transformerNotationFocus(), // [!code ++]
     ],
   },
 });
@@ -270,7 +311,7 @@ export default defineConfig({
   mdxOptions: {
     transformers: [
       ...(rehypeCodeDefaultOptions.transformers ?? []),
-      transformerNotationErrorLevel({ matchAlgorithm: "v3" }), // [!code ++]
+      transformerNotationErrorLevel(), // [!code ++]
     ],
   },
 });
