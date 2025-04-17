@@ -1,0 +1,64 @@
+---
+title: 快速开始
+description: 使用 Fumadocs 提供的脚手架快速搭建文档网站
+---
+
+## 安装
+
+需要最低版本 `Node.js 18`。注意 `Node.js 23.1` 生产版本 `Next.js` 可能会出现问题。
+
+使用下面命令中的任意一个命令即可创建项目：
+
+```shell
+yarn create fumadocs-app
+pnpm create fumadocs-app
+npm create fumadocs-app
+bun create fumadocs-app
+```
+
+输入完命令后会提示输入或选择一些问题：
+
+```text
+  Create Fumadocs App
+│
+◇  Project name
+│  my-app
+│
+◇  Choose a template
+│  Next.js: Fumadocs MDX
+│
+◇  Use `/src` directory?
+│  No
+│
+◇  Add default ESLint configuration?
+│  No
+│
+◇  Do you want to install packages automatically? (detected as yarn)
+│  Yes
+│
+◑  Configured Tailwind CSS
+```
+
+## 开发
+
+在 `content/docs` 目录下开始编写文档。
+
+```mdx title=content/docs/index.mdx
+---
+title: Hello World
+description: This is a description
+---
+
+## Yo what's up
+```
+
+运行下面任意一个命令即可启动开发服务器：
+
+```shell
+yarn dev
+pnpm run dev
+npm run dev
+bun run dev
+```
+
+在开发模式下运行应用程序并查看 http://localhost:3000/docs。
