@@ -3,3 +3,101 @@ title: "手风琴 Accordion"
 description: "将手风琴 Accordions 添加到您的文档中"
 preview: accordion
 ---
+
+## 用法 [#usage]
+
+Fumadocs 提供了 `Accordions` 组件，它可以在文档中添加手风琴，它基于 [Radix UI Accordion](https://www.radix-ui.com/primitives/docs/components/accordion)。
+
+```tsx
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+<Accordions type="single">
+  <Accordion title="My Title">My Content</Accordion>
+</Accordions>;
+```
+
+### Accordions [#accordions]
+
+| 属性             | 类型                             | 默认值                                            |
+|----------------|--------------------------------|------------------------------------------------|
+| `asChild?`     | `boolean`                      | <Minus width="16" className="text-gray-400" /> |
+| `type`         | `"single"` \| `"multiple"`     | <Minus width="16" className="text-gray-400" /> |
+| `disabled?`    | `boolean`                      | `false`                                        |
+| `orientation?` | `"horizontal"` \| `"vertical"` | `vertical`                                     |
+| `defaultValue` | `string`                       | <Minus width="16" className="text-gray-400" /> |
+
+### Accordion [#accordion]
+
+| 属性          | 类型        | 默认值                                            |
+|-------------|-----------|------------------------------------------------|
+| `asChild?`  | `boolean` | <Minus width="16" className="text-gray-400" /> |
+| `disabled?` | `boolean` | `false`                                        |
+
+## 常用示例 [#examples]
+
+### 默认展开 [#expanded-by-default]
+
+使用 `defaultValue` 属性来定义默认的打开项。
+
+<Tabs items={['Preview', 'Source Code']}>
+    <Tab value="Preview">
+        <Accordions type="single" defaultValue="item-2">
+            <Accordion value="item-1">Item 1</Accordion>
+            <Accordion value="item-2">Item 2</Accordion>
+        </Accordions>
+    </Tab>
+
+    <Tab value="Source Code">
+        ```mdx /defaultValue="item-2"/
+        <Accordions type="single" defaultValue="item-2">
+            <Accordion value="item-1">Item 1</Accordion>
+            <Accordion value="item-2">Item 2</Accordion>
+        </Accordions>
+        ```
+    </Tab>
+</Tabs>
+
+### 允许折叠所有项目 [#allow-collapsing-all-items]
+
+使用 `collapsible` 属性来允许所有项目关闭。
+
+<Tabs items={["Preview", "Source Code"]}>
+    <Tab value={"Preview"}>
+        <Accordions type="single" collapsible>
+            <Accordion value="item-1">Item 1</Accordion>
+            <Accordion value="item-2">Item 2</Accordion>
+        </Accordions>
+    </Tab>
+
+    <Tab value={"Source Code"}>
+        ```mdx /collapsible/
+        <Accordions type="single" collapsible>
+            <Accordion value="item-1">Item 1</Accordion>
+            <Accordion value="item-2">Item 2</Accordion>
+        </Accordions>
+        ```
+    </Tab>
+</Tabs>
+
+
+### 同时打开多个项目 [#multiple-items-open-at-the-same-time]
+
+将 `type` 属性设置为 `multiple` 以允许一次打开多个项目。
+
+<Tabs items={["Preview", "Source Code"]}>
+    <Tab value={"Preview"}>
+        <Accordions type="multiple" collapsible>
+            <Accordion value="item-1">Item 1</Accordion>
+            <Accordion value="item-2">Item 2</Accordion>
+        </Accordions>
+    </Tab>
+
+    <Tab value={"Source Code"}>
+        ```mdx /type="multiple"/
+        <Accordions type="multiple">
+            <Accordion value="item-1">Item 1</Accordion>
+            <Accordion value="item-2">Item 2</Accordion>
+        </Accordions>
+        ```
+    </Tab>
+</Tabs>

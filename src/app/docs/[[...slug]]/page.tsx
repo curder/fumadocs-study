@@ -39,6 +39,7 @@ export default async function Page(props: {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         {preview ? <PreviewRenderer preview={preview} /> : null}
+        {page.data.index ? <DocsCategory url={page.url} /> : null}
 
         <MDXContent
           components={getMDXComponents({
@@ -46,7 +47,6 @@ export default async function Page(props: {
             a: createRelativeLink(source, page),
           })}
         />
-        {page.data.index ? <DocsCategory url={page.url} /> : null}
       </DocsBody>
     </DocsPage>
   );
