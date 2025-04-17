@@ -155,9 +155,9 @@
   integrity sha512-kM3HKb16VIXZyIeVrM1ygYmZBKybX8N4p754bw390wGO3Tf2j4L2/WYL+4suWujpgf6GBYs3jv7TyUivdd05JA==
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
-  version "4.6.0"
-  resolved "https://registry.npmmirror.com/@eslint-community/eslint-utils/-/eslint-utils-4.6.0.tgz#bfe67b3d334a8579a35e48fe240dc0638d1bcd91"
-  integrity sha512-WhCn7Z7TauhBtmzhvKpoQs0Wwb/kBcy4CwpuI0/eEIr2Lx2auxmulAzLr91wVZJaz47iUZdkXOK7WlAfxGKCnA==
+  version "4.6.1"
+  resolved "https://registry.npmmirror.com/@eslint-community/eslint-utils/-/eslint-utils-4.6.1.tgz#e4c58fdcf0696e7a5f19c30201ed43123ab15abc"
+  integrity sha512-KTsJMmobmbrFLe3LDh0PC2FXpcSYJt/MLjlkh/9LEnmKYLSYmT/0EW9JWANjeoemiuZrmogti0tW5Ch+qNUYDw==
   dependencies:
     eslint-visitor-keys "^3.4.3"
 
@@ -995,6 +995,15 @@
     postcss "^8.4.41"
     tailwindcss "4.1.4"
 
+"@ts-morph/common@~0.26.0":
+  version "0.26.1"
+  resolved "https://registry.npmmirror.com/@ts-morph/common/-/common-0.26.1.tgz#a346188e59d2befe4c71f66a7d626d81b1abe2a8"
+  integrity sha512-Sn28TGl/4cFpcM+jwsH1wLncYq3FtN/BIpem+HOygfBWPT5pAeS5dB4VFVzV8FbnOKHpDLZmvAl4AjPEev5idA==
+  dependencies:
+    fast-glob "^3.3.2"
+    minimatch "^9.0.4"
+    path-browserify "^1.0.1"
+
 "@tybys/wasm-util@^0.9.0":
   version "0.9.0"
   resolved "https://registry.npmmirror.com/@tybys/wasm-util/-/wasm-util-0.9.0.tgz#3e75eb00604c8d6db470bf18c37b7d984a0e3355"
@@ -1555,6 +1564,11 @@ clsx@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmmirror.com/clsx/-/clsx-2.1.1.tgz#eed397c9fd8bd882bfb18deab7102049a2f32999"
   integrity sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==
+
+code-block-writer@^13.0.3:
+  version "13.0.3"
+  resolved "https://registry.npmmirror.com/code-block-writer/-/code-block-writer-13.0.3.tgz#90f8a84763a5012da7af61319dd638655ae90b5b"
+  integrity sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==
 
 collapse-white-space@^2.0.0:
   version "2.1.0"
@@ -2199,7 +2213,7 @@ estree-util-to-js@^2.0.0:
     astring "^1.8.0"
     source-map "^0.7.0"
 
-estree-util-value-to-estree@^3.3.3:
+estree-util-value-to-estree@^3.3.2, estree-util-value-to-estree@^3.3.3:
   version "3.3.3"
   resolved "https://registry.npmmirror.com/estree-util-value-to-estree/-/estree-util-value-to-estree-3.3.3.tgz#800b03a551b466dd77ed2c574b042a9992546cf2"
   integrity sha512-Db+m1WSD4+mUO7UgMeKkAwdbfNWwIxLt48XF2oFU9emPfXkIu+k5/nlOj313v7wqtAPo0f9REhUvznFrPkG8CQ==
@@ -2373,6 +2387,21 @@ fumadocs-mdx@11.6.0:
     picocolors "^1.1.1"
     unist-util-visit "^5.0.0"
     zod "^3.24.2"
+
+fumadocs-typescript@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.npmmirror.com/fumadocs-typescript/-/fumadocs-typescript-4.0.2.tgz#3620308c3d4fcd23c48eb667e9fa5aafa8ed75d0"
+  integrity sha512-R+jLdGHkdecNF6haUsH5iMRr3t+g582t3l5lYyUIiZRDGhwMZSjLP8s/izGrBos76s/ZnMVlxEhhkty+cK3x+w==
+  dependencies:
+    estree-util-value-to-estree "^3.3.2"
+    fast-glob "^3.3.3"
+    hast-util-to-estree "^3.1.3"
+    hast-util-to-jsx-runtime "^2.3.6"
+    remark "^15.0.1"
+    remark-rehype "^11.1.2"
+    shiki "^3.2.1"
+    ts-morph "^25.0.1"
+    unist-util-visit "^5.0.0"
 
 fumadocs-ui@15.2.7:
   version "15.2.7"
@@ -3874,9 +3903,9 @@ once@^1.3.0:
     wrappy "1"
 
 oniguruma-parser@^0.11.0:
-  version "0.11.1"
-  resolved "https://registry.npmmirror.com/oniguruma-parser/-/oniguruma-parser-0.11.1.tgz#f9b6937f32cbc9051c079a5fe3cf30a2e3347c81"
-  integrity sha512-fX6SirDOsTUNqSUOnL3fDtD3R7PCXNWGA3WWPvv9egEfTWkNXzRLO/9CC1WkDusP6HyWRZig06kHeYPcw3mlqQ==
+  version "0.11.2"
+  resolved "https://registry.npmmirror.com/oniguruma-parser/-/oniguruma-parser-0.11.2.tgz#25aae5bd481b64a741b3285d84bcf6cee21ef796"
+  integrity sha512-F7Ld4oDZJCI5/wCZ8AOffQbqjSzIRpKH7I/iuSs1SkhZeCj0wS6PMZ4W6VA16TWHrAo0Y9bBKEJOe7tvwcTXnw==
 
 oniguruma-to-es@^4.1.0:
   version "4.2.0"
@@ -3942,6 +3971,11 @@ parse-entities@^4.0.0:
     is-alphanumerical "^2.0.0"
     is-decimal "^2.0.0"
     is-hexadecimal "^2.0.0"
+
+path-browserify@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmmirror.com/path-browserify/-/path-browserify-1.0.1.tgz#d98454a9c3753d5790860f16f68867b9e46be1fd"
+  integrity sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==
 
 path-exists@^4.0.0:
   version "4.0.0"
@@ -4216,7 +4250,7 @@ remark-parse@^11.0.0:
     micromark-util-types "^2.0.0"
     unified "^11.0.0"
 
-remark-rehype@^11.0.0:
+remark-rehype@^11.0.0, remark-rehype@^11.1.2:
   version "11.1.2"
   resolved "https://registry.npmmirror.com/remark-rehype/-/remark-rehype-11.1.2.tgz#2addaadda80ca9bd9aa0da763e74d16327683b37"
   integrity sha512-Dh7l57ianaEoIpzbp0PC9UKAdCSVklD8E5Rpw7ETfbTl3FqcOOgq5q2LVDhgGCkaBv7p24JXikPdvhhmHvKMsw==
@@ -4236,7 +4270,7 @@ remark-stringify@^11.0.0:
     mdast-util-to-markdown "^2.0.0"
     unified "^11.0.0"
 
-remark@^15.0.0:
+remark@^15.0.0, remark@^15.0.1:
   version "15.0.1"
   resolved "https://registry.npmmirror.com/remark/-/remark-15.0.1.tgz#ac7e7563260513b66426bc47f850e7aa5862c37c"
   integrity sha512-Eht5w30ruCXgFmxVUSlNWQ9iiimq07URKeFS3hNc8cUWy1llX4KDWfyEDZRycMc+znsN9Ux5/tJ/BFdgdOwA3A==
@@ -4424,7 +4458,7 @@ shebang-regex@^3.0.0:
   resolved "https://registry.npmmirror.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-shiki@3.2.2, shiki@^3.2.2:
+shiki@3.2.2, shiki@^3.2.1, shiki@^3.2.2:
   version "3.2.2"
   resolved "https://registry.npmmirror.com/shiki/-/shiki-3.2.2.tgz#aa231cc84efcf4f2a875de604aa7a45efe446fd2"
   integrity sha512-0qWBkM2t/0NXPRcVgtLhtHv6Ak3Q5yI4K/ggMqcgLRKm4+pCs3namgZlhlat/7u2CuqNtlShNs9lENOG6n7UaQ==
@@ -4695,6 +4729,14 @@ ts-api-utils@^2.0.1:
   version "2.1.0"
   resolved "https://registry.npmmirror.com/ts-api-utils/-/ts-api-utils-2.1.0.tgz#595f7094e46eed364c13fd23e75f9513d29baf91"
   integrity sha512-CUgTZL1irw8u29bzrOD/nH85jqyc74D6SshFgujOIA7osm2Rz7dYH77agkx7H4FBNxDq7Cjf+IjaX/8zwFW+ZQ==
+
+ts-morph@^25.0.1:
+  version "25.0.1"
+  resolved "https://registry.npmmirror.com/ts-morph/-/ts-morph-25.0.1.tgz#7de0b60fcc6e86955c8766831bcd2c5d87ffbd4f"
+  integrity sha512-QJEiTdnz1YjrB3JFhd626gX4rKHDLSjSVMvGGG4v7ONc3RBwa0Eei98G9AT9uNFDMtV54JyuXsFeC+OH0n6bXQ==
+  dependencies:
+    "@ts-morph/common" "~0.26.0"
+    code-block-writer "^13.0.3"
 
 tsconfig-paths@^3.15.0:
   version "3.15.0"
@@ -4987,9 +5029,9 @@ yocto-queue@^0.1.0:
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
 zod@^3.24.2:
-  version "3.24.2"
-  resolved "https://registry.npmmirror.com/zod/-/zod-3.24.2.tgz#8efa74126287c675e92f46871cfc8d15c34372b3"
-  integrity sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==
+  version "3.24.3"
+  resolved "https://registry.npmmirror.com/zod/-/zod-3.24.3.tgz#1f40f750a05e477396da64438e0e1c0995dafd87"
+  integrity sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==
 
 zwitch@^2.0.0, zwitch@^2.0.4:
   version "2.0.4"
