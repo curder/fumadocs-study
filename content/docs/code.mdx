@@ -63,7 +63,7 @@ export default defineConfig({
 });
 ```
 
-### 增减行 [#line-addition-deletion]
+### 增减行 `[!code ++]` [#line-addition-deletion]
 
 使用 `[!code ++]` 和 `[!code --]` 来标记增删的行。
 
@@ -101,11 +101,7 @@ console.log("hello");
 console.log("goodbye");
 ```
 
-### 行高亮 [#line-highlight]
-
-使用 `[!code highlight]{:mdx}` 来渲染单行的高亮显示，使用 `[!code highlight:number]{:mdx}` 来渲染多行的高亮显示。
-
-#### 渲染单行 [#line-highlight-single]
+### 行高亮 `[!code highlight]` [#line-highlight]
 
 使用 `[!code highlight]{:md}` 来高亮显示行：
 
@@ -124,8 +120,6 @@ console.log("Not highlighted");
 console.log("Highlighted"); // [!code highlight]
 console.log("Not highlighted");
 ```
-
-#### 渲染多行 [#line-highlight-multiple]
 
 使用 `[!code highlight:number]{:md}`，其中 `number` 用于指定接下来有多少行被渲染成高亮：
 
@@ -147,7 +141,38 @@ console.log("Highlighted 2");
 console.log("Not highlighted");
 ```
 
-### 标记单词 [#marking-words]
+### 行高亮 `{1,3-4}` [#line-meta-highlight]
+
+除了使用 `[!code highlight]` 外，还可以使用 `{1,3-4}` 来高亮显示行。
+
+默认情况下，Fumadocs 不支持 `{1,3-4}` 语法，需要在 `source.config.ts` 中配置 `rehypeCodeOptions.transformers` 来启用默认转换器：
+
+```ts title="source.config.ts"
+import {
+  transformerMetaHighlight, // [!code ++]
+} from "@shikijs/transformers";
+export default defineConfig({
+  mdxOptions: {
+    // MDX options
+    rehypeCodeOptions: {
+      transformers: [
+        ...(rehypeCodeDefaultOptions.transformers ?? []),
+        transformerMetaHighlight(), // [!code ++]
+      ],
+    },
+  },
+});
+```
+
+支持的语法包括：
+
+- **`{4}`** - 仅仅高亮第 4 行
+- **`{4-6}`** - 高亮显示从第 4 行到第 6 行（含）的范围
+- **`{1,5}`** - 仅高亮显示第 1 行和第 5 行
+- **`{1-3,5}`** - 高亮显示第 1 行到第 3 行，然后高亮显示第 5 行
+- **`{5,7,2-3}`** - 行的顺序不重要。但指定 3-2 行将不起作用
+
+### 标记单词 `[!code word:Hello]` [#marking-words]
 
 使用 `[!code word:Hello]` 在接下来的代码高亮所有的 `Hello`。
 
@@ -179,4 +204,105 @@ console.log(message) // prints Hello World
 // [!code word:Hello:1]
 const message = "Hello World";
 console.log(message); // prints Hello World
+```
+
+### 代码行聚焦 `focus` [#code-focus]
+
+使用 `[!code focus]` 语法来聚焦代码行：
+
+默认情况下，Fumadocs 不支持 `[!code focus]{:mdx}` 语法，首先需要在 `source.config.ts` 中配置 `rehypeCodeOptions.transformers` 来启用默认转换器：
+
+```ts title="source.config.ts"
+import {
+  transformerNotationFocus, // [!code ++]
+} from "@shikijs/transformers";
+export default defineConfig({
+  mdxOptions: {
+    transformers: [
+      ...(rehypeCodeDefaultOptions.transformers ?? []),
+      transformerNotationFocus({ matchAlgorithm: "v3" }), // [!code ++]
+    ],
+  },
+});
+```
+
+然后在 `src/app/global.css` 文件中添加以下样式：
+
+```css title="src/app/global.css"
+/** Focused lines */
+.shiki.has-focused {
+  .line:not(.focused) {
+    @apply transition-all blur-[2px];
+  }
+
+  &:hover .line {
+    @apply transition-all blur-none;
+  }
+}
+```
+
+配置完成后，就可以使用 `[!code focus]{:mdx}` 语法来聚焦代码行：
+
+```mdx
+console.log("Not focused");
+console.log("Focused"); // [!code focus]
+console.log("Not focused");
+```
+
+渲染后的结果是：
+
+```ts
+console.log("Not focused");
+console.log("Focused"); // [!code focus]
+console.log("Not focused");
+```
+
+### 错误行 `[!code error]` [#error-line]
+
+使用 `[!code error]`或 `[!code warning]` 语法来渲染错误或警告行。
+默认情况下，Fumadocs 不支持 `[!code error]{:mdx}` 语法，首先需要在 `source.config.ts` 中配置 `rehypeCodeOptions.transformers` 来启用默认转换器：
+
+```ts title="source.config.ts"
+import {
+  transformerNotationErrorLevel, // [!code ++]
+} from "@shikijs/transformers";
+export default defineConfig({
+  mdxOptions: {
+    transformers: [
+      ...(rehypeCodeDefaultOptions.transformers ?? []),
+      transformerNotationErrorLevel({ matchAlgorithm: "v3" }), // [!code ++]
+    ],
+  },
+});
+```
+
+然后在 `src/app/global.css` 文件中添加以下样式：
+
+```css title="src/app/global.css"
+/** Error or Warning lines */
+.shiki.has-highlighted {
+  .error {
+    @apply bg-rose-300/30;
+  }
+  .warning {
+    @apply bg-amber-300/30;
+  }
+}
+```
+
+配置完成后，就可以使用 `[!code error]{:mdx}` 语法来渲染错误或警告行：
+
+```mdx
+console.log("Not error");
+console.log("Error"); // [!code error]
+console.log("Not error");
+```
+
+渲染后的结果是：
+
+```ts
+console.log("Not error");
+console.log("Error"); // [!code error]
+console.log("warning"); // [!code warning]
+console.log("Not error");
 ```
