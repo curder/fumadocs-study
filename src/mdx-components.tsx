@@ -4,6 +4,7 @@ import defaultMdxComponents from "fumadocs-ui/mdx";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 import { File, Files, Folder } from "fumadocs-ui/components/files";
+import { GithubInfo } from "fumadocs-ui/components/github-info";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { Banner } from "fumadocs-ui/components/banner";
@@ -22,9 +23,10 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Files,
     Folder,
     Banner,
+    TypeTable,
     Accordion,
     Accordions,
-    TypeTable,
+    GithubInfo,
     AutoTypeTable: (props) => (
       <AutoTypeTable {...props} generator={generator} />
     ),

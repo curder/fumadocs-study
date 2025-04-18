@@ -6,6 +6,8 @@ import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { createGenerator } from "fumadocs-typescript";
 import { Banner } from "fumadocs-ui/components/banner";
 import { File, Files, Folder } from "fumadocs-ui/components/files";
+import { GithubInfo } from "fumadocs-ui/components/github-info";
+import { owner, repo } from "@/lib/github";
 
 export function accordion(): ReactNode {
   return (
@@ -126,6 +128,19 @@ export function files(): ReactNode {
         </Folder>
         <File name="package.json" />
       </Files>
+    </Wrapper>
+  );
+}
+
+export function githubInfo() {
+  return (
+    <Wrapper>
+      <GithubInfo
+        owner={owner}
+        repo={repo}
+        token={process.env.GITHUB_TOKEN}
+        className="not-prose bg-fd-card"
+      />
     </Wrapper>
   );
 }

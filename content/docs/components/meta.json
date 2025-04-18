@@ -1,3 +1,10 @@
 {
-  "pages": ["accordion", "type-table", "auto-type-table", "banner", "files"]
+  "pages": [
+    "accordion",
+    "type-table",
+    "auto-type-table",
+    "banner",
+    "files",
+    "github-info"
+  ]
 }

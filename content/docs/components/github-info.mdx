@@ -1,0 +1,43 @@
+---
+title: "代码仓库 GithubInfo"
+description: "在文档中展示 GitHub 仓库基本信息"
+preview: githubInfo
+---
+
+## 基本用法 [#basic]
+
+将 `GitHubInfo` 组件添加为 MDX 组件，使用下面的方式初始化。
+
+```tsx
+import defaultComponents from "fumadocs-ui/mdx";
+import type { MDXComponents } from "mdx/types";
+import { createGenerator } from "fumadocs-typescript";
+import { GithubInfo } from "fumadocs-ui/components/github-info"; // [!code ++] [!code focus]
+
+export function getMDXComponents(components?: MDXComponents): MDXComponents {
+  return {
+    ...defaultComponents,
+    GithubInfo, // [!code ++] [!code focus]
+    ...components,
+  };
+}
+```
+
+在文档中使用 `GithubInfo` 组件。
+
+```tsx
+import { GithubInfo } from "fumadocs-ui/components/github-info";
+
+<GithubInfo
+  owner="fuma-nama"
+  repo="fumadocs"
+  // your own GitHub access token (optional)
+  token={process.env.GITHUB_TOKEN}
+/>;
+```
+
+<GithubInfo owner="fuma-nama" repo="fumadocs" />
+
+## 常用属性 [#props]
+
+<AutoTypeTable path="./content/docs/props.ts" name="GithubInfoProps" />

@@ -1,8 +1,9 @@
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef, AnchorHTMLAttributes } from "react";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Banner } from "fumadocs-ui/components/banner";
 import { File, Folder } from "fumadocs-ui/components/files";
+import { GithubInfo } from "fumadocs-ui/components/github-info";
 
 export type TypeTableProps = ComponentPropsWithoutRef<typeof TypeTable>;
 
@@ -33,4 +34,10 @@ export type FileProps = Omit<
 export type FolderProps = Omit<
   ComponentPropsWithoutRef<typeof Folder>,
   keyof ComponentPropsWithoutRef<"div">
+>;
+
+export type GithubInfoProps = Omit<
+  ComponentPropsWithoutRef<typeof GithubInfo>,
+  | keyof ComponentPropsWithoutRef<"div">
+  | keyof AnchorHTMLAttributes<HTMLAnchorElement>
 >;
