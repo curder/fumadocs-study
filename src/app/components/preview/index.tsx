@@ -4,11 +4,16 @@ import { TypeTable } from "fumadocs-ui/components/type-table";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { createGenerator } from "fumadocs-typescript";
-import { Banner } from "fumadocs-ui/components/banner";
-import { File, Files, Folder } from "fumadocs-ui/components/files";
 import { GithubInfo } from "fumadocs-ui/components/github-info";
+
 import { owner, repo } from "@/lib/github";
-import { ImageZoom } from "@/app/components/preview/lazy";
+import {
+  File,
+  Files,
+  Folder,
+  Banner,
+  ImageZoom,
+} from "@/app/components/preview/lazy";
 import BannerImage from "@/public/images/banner.png";
 
 export function accordion(): ReactNode {
