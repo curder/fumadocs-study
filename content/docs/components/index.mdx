@@ -7,11 +7,12 @@ index: true
 如果需要将常用组件 `Tab`、`Tabs`、`File`、`Files`、`Folder`、`Accordion` 和 `Accordions` 等需要在全局使用，可以通过在 `app/mdx-components.tsx` 中注册，然后就可以在全局使用。
 
 ```tsx title="app/mdx-components.tsx"
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import type { MDXComponents } from 'mdx/types';
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs'; // [!code ++] [!code focus]
-import { File, Files, Folder } from 'fumadocs-ui/components/files';  // [!code ++] [!code focus]
-import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';  // [!code ++] [!code focus]
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import type { MDXComponents } from "mdx/types";
+import { Banner } from "fumadocs-ui/components/banner"; // [!code ++] [!code focus]
+import { Tab, Tabs } from "fumadocs-ui/components/tabs"; // [!code ++] [!code focus]
+import { File, Files, Folder } from "fumadocs-ui/components/files"; // [!code ++] [!code focus]
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion"; // [!code ++] [!code focus]
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -21,6 +22,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     File, // [!code ++] [!code focus]
     Files, // [!code ++] [!code focus]
     Folder, // [!code ++] [!code focus]
+    Banner, // [!code ++] [!code focus]
     Accordion, // [!code ++] [!code focus]
     Accordions, // [!code ++] [!code focus]
     ...components,

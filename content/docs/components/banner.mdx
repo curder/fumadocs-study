@@ -1,0 +1,64 @@
+---
+title: "横幅 Banner"
+description: "向文档中添加横幅"
+preview: banner
+---
+
+## 用法 [#usage]
+
+将 `Banner` 组件添加为 MDX 组件，使用下面的方式初始化。
+
+```tsx title="app/mdx-components.tsx"
+import defaultComponents from "fumadocs-ui/mdx";
+import type { MDXComponents } from "mdx/types";
+import { createGenerator } from "fumadocs-typescript";
+import { Banner } from "fumadocs-ui/components/banner"; // [!code ++] [!code focus]
+
+export function getMDXComponents(components?: MDXComponents): MDXComponents {
+  return {
+    ...defaultComponents,
+    Banner, // [!code ++] [!code focus]
+    ...components,
+  };
+}
+```
+
+### 变体 `variant` [#variant]
+
+使用 `variant` 属性来设置横幅的样式。
+
+```mdx
+import { Banner } from "fumadocs-ui/components/banner";
+
+<Banner variant="rainbow">Hello World</Banner>
+```
+
+`variant` 仅支持 `rainbow` 和 `normal` 两种样式。
+
+### 更改布局 `changeLayout` [#change-layout]
+
+默认情况下，横幅使用 `style` 标签来修改 Fumadocs 布局（例如，降低侧边栏高度）。
+
+可以通过以下方式禁用它：
+
+```mdx
+import { Banner } from "fumadocs-ui/components/banner";
+
+<Banner changeLayout={false}>Hello World</Banner>
+```
+
+### 关闭 `id` [#id]
+
+当横幅允许关闭时，可以使用 `id` 属性来设置关闭按钮的 ID。
+
+```mdx
+import { Banner } from "fumadocs-ui/components/banner";
+
+<Banner id="hello-world">Hello World</Banner>
+```
+
+关闭的状态存储在用户浏览器的 `localStorage` 中被持久化了。
+
+## 常用属性 [#common-props]
+
+<AutoTypeTable path="./content/docs/props.ts" name="BannerProps" />

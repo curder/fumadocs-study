@@ -4,6 +4,7 @@ import { TypeTable } from "fumadocs-ui/components/type-table";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { createGenerator } from "fumadocs-typescript";
+import { Banner } from "fumadocs-ui/components/banner";
 
 export function accordion(): ReactNode {
   return (
@@ -75,6 +76,31 @@ export function autoTypeTable(): ReactNode {
 
 }`}
         />
+      </div>
+    </Wrapper>
+  );
+}
+
+export function banner(): ReactNode {
+  return (
+    <Wrapper>
+      <div className="flex flex-col gap-4">
+        <Banner className="z-0" changeLayout={false}>
+          Be careful, Fumadocs v99 has released
+        </Banner>
+
+        <Banner
+          className="z-0"
+          id="test-rainbow"
+          variant="rainbow"
+          changeLayout={false}
+        >
+          Using the <code>rainbow</code> variant
+        </Banner>
+
+        <Banner className="z-0" id="test" changeLayout={false}>
+          Be careful, this banner can be closed
+        </Banner>
       </div>
     </Wrapper>
   );
