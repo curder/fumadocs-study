@@ -26,38 +26,8 @@ import { TypeTable } from 'fumadocs-ui/components/type-table';
 
 `TypeTable` 仅能接收 `type` 属性。
 
-<TypeTable
-    type={{
-        type: {
-            type: 'Record<string, ObjectType>',
-            required: true,
-            default: null,
-        },
-    }}
-/>
+<AutoTypeTable path="./content/docs/props.ts" name="TypeTableProps" />
 
 ## 属性值
 
-<TypeTable
-    type={{
-        type: {
-            type: 'string',
-            required: true,
-        },
-        description: {
-            type: 'ReactNode',
-        },
-        typeDescription: {
-            type: 'ReactNode',
-        },
-        typeDescriptionLink: {
-            type: 'string',
-        },
-        default: {
-            type: 'string',
-        },
-        required: {
-            type: 'boolean',
-        }
-    }}
-/>
+<AutoTypeTable path="./content/docs/props.ts" name="TypeTableObjectTypeProps" />

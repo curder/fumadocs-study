@@ -12,6 +12,8 @@ import * as Preview from "@/app/components/preview";
 import { ReactNode } from "react";
 import { Card, Cards } from "fumadocs-ui/components/card";
 import { getPageTreePeers } from "fumadocs-core/server";
+import {AutoTypeTable} from "fumadocs-typescript/ui";
+import { createGenerator } from 'fumadocs-typescript';
 
 function PreviewRenderer({ preview }: { preview: string }): ReactNode {
   if (preview && preview in Preview) {
@@ -21,6 +23,8 @@ function PreviewRenderer({ preview }: { preview: string }): ReactNode {
 
   return null;
 }
+
+const generator = createGenerator();
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -44,6 +48,9 @@ export default async function Page(props: {
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
+            AutoTypeTable: (props) => (
+              <AutoTypeTable generator={generator} {...props} />
+            ),
           })}
         />
       </DocsBody>

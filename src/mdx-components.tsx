@@ -5,7 +5,7 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import {TypeTable} from "fumadocs-ui/components/type-table";
 import { File, Files, Folder } from 'fumadocs-ui/components/files';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
-
+import {AutoTypeTable} from "fumadocs-typescript/ui";
 // use this function to get MDX components, you will need it for rendering MDX
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -19,6 +19,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Accordion,
     Accordions,
     TypeTable,
+    AutoTypeTable,
     ...components,
   };
 }
