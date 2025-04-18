@@ -47,3 +47,10 @@ export const Steps = dynamic(() =>
 export const Step = dynamic(() =>
   import("fumadocs-ui/components/steps").then((res) => res.Step)
 );
+
+export const Tabs = dynamic(() =>
+  import("fumadocs-ui/components/tabs").then((res) => res.Tabs)
+);
+export const Tab = dynamic(() =>
+  import("fumadocs-ui/components/tabs").then((res) => res.Tab)
+);

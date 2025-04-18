@@ -1,6 +1,7 @@
 {
   "pages": [
     "steps",
+    "tabs",
     "accordion",
     "type-table",
     "auto-type-table",

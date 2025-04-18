@@ -7,6 +7,8 @@ import { owner, repo } from "@/lib/github";
 import {
   Step,
   Steps,
+  Tab,
+  Tabs,
   File,
   Files,
   Folder,
@@ -231,6 +233,34 @@ export function steps(): ReactNode {
             <p>在这里添加一些文字</p>
           </Step>
         </Steps>
+      </div>
+    </Wrapper>
+  );
+}
+
+export function tabs(): ReactNode {
+  return (
+    <Wrapper>
+      <div className="space-y-4 rounded-xl bg-fd-background p-4 text-sm">
+        <Tabs
+          groupId="language"
+          persist
+          items={["Javascript", "Rust", "Typescript"]}
+        >
+          <Tab value="Javascript">Hello World in Javascript</Tab>
+          <Tab value="Rust">Hello World in Rust</Tab>
+          <Tab value="Typescript">Also works if items are not the same</Tab>
+        </Tabs>
+
+        <Tabs groupId="language" persist items={["Javascript", "Rust"]}>
+          <Tab value="Javascript">
+            Javascript Value is shared! Try refresh and see if the value is
+            persisted
+          </Tab>
+          <Tab value="Rust">
+            Rust Value is shared! Try refresh and see if the value is persisted
+          </Tab>
+        </Tabs>
       </div>
     </Wrapper>
   );

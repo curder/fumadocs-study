@@ -1,0 +1,123 @@
+---
+title: "选项卡 Tabs"
+description: 使用 Radix UI 构建的 Tabs 组件，具有持久性和共享值等附加功能。
+preview: tabs
+---
+
+## 用法 [#usage]
+
+将 `Tabs` 和 `Tab` 组件添加为 MDX 组件，使用下面的方式初始化。
+
+```mdx title="app/mdx-components.tsx"
+import defaultComponents from "fumadocs-ui/mdx";
+import type { MDXComponents } from "mdx/types";
+import { createGenerator } from "fumadocs-typescript";
+import { Tab, Tabs } from "fumadocs-ui/components/tabs"; //[!code ++]
+ 
+export function getMDXComponents(components?: MDXComponents): MDXComponents {
+  return {
+    ...defaultComponents,
+    Tab, //[!code ++]
+    Tabs, //[!code ++]
+    ...components,
+  };
+
+}
+```
+
+接下来就可以在 MDX 中使用了。
+
+```mdx
+<Tabs>
+  <Tab value="first">
+    <h1>First Tab</h1>
+  </Tab>
+  <Tab value="second">
+    <h1>Second Tab</h1>
+  </Tab>
+</Tabs>
+```
+
+### 联动 groupId [#group-id-prop]
+
+使用 `groupId` 属性可以将多个 `Tabs` 组件联动起来，这样它们的值就会共享。
+
+```mdx /groupId="my-tabs"/
+<Tabs groupId="my-tabs" items={["first", "second"]}>
+  <Tab value="first">
+    <h1>01. First Tab</h1>
+  </Tab>
+  <Tab value="second">
+    <h1>01. Second Tab</h1>
+  </Tab>
+</Tabs>
+
+<Tabs groupId="my-tabs" items={["first", "second"]}>
+  <Tab value="first">
+    <h1>02. First Tab</h1>
+  </Tab>
+  <Tab value="second">
+    <h1>02. Second Tab</h1>
+  </Tab>
+</Tabs>
+```
+
+### 持久化 `presist` [#persist-prop]
+
+使用 `persist` 属性可以将 `Tabs` 组件的值持久化到本地存储中，这样即使页面刷新，值也不会丢失。
+
+```mdx /persist/ /groupId="language"/
+<Tabs persist items={["Javascript", "Rust"]} groupId="language">
+  <Tab value="Javascript">Javascript is weird</Tab>
+  <Tab value="Rust">Rust is fast</Tab>
+</Tabs>
+```
+
+<Callout type="info" title="提示">
+  持久化 `presist` 参数需要同时提供 `groupId` 参数。并且 `groupId` 作为
+  `localStorage` 存储时的键名。
+</Callout>
+
+### 默认值 `defaultIndex` [#default-index-prop]
+
+使用 `defaultIndex` 属性可以设置 `Tabs` 组件的默认值。
+
+```mdx /defaultIndex={1}/
+<Tabs items={["Javascript", "Rust"]} defaultIndex={1}>
+  <Tab value="Javascript">Javascript is weird</Tab>
+  <Tab value="Rust">Rust is fast</Tab>
+</Tabs>
+```
+
+### 链接到选项卡 `id` [#id-prop]
+
+使用 `id` 属性可以将 `Tabs` 组件链接到选项卡。
+
+```mdx /id="rust-tab"/ /id="js-tab"/
+<Tabs items={["Javascript", "Rust"]}>
+  <Tab id="js-tab" value="Javascript">
+    Javascript is weird
+  </Tab>
+  <Tab id="rust-tab" value="Rust">
+    Rust is fast
+  </Tab>
+</Tabs>
+```
+
+此时如果在页面中使用 `#js-tab` 或 `#rust-tab` 链接到选项卡，就会自动切换到对应的选项卡。
+
+此外，还可以给 `Tabs` 组件添加 `updateAnchor` 属性，便在选择新选项卡时自动更新 URL 哈希：
+
+```mdx /updateAnchor/ /id="js-tab"/ /id="rust-tab"/ /id="cpp-tab"/
+<Tabs items={["Javascript", "Rust"]} updateAnchor>
+  <Tab id="js-tab" value="Javascript">
+    Javascript is weird
+  </Tab>
+  <Tab id="rust-tab" value="Rust">
+    Rust is fast
+  </Tab>
+  <Tab id="cpp-tab" value="C++">
+    `Hello World`
+  </Tab>
+</Tabs>
+```
