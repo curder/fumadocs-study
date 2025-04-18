@@ -5,6 +5,8 @@ import { GithubInfo } from "fumadocs-ui/components/github-info";
 
 import { owner, repo } from "@/lib/github";
 import {
+  Step,
+  Steps,
   File,
   Files,
   Folder,
@@ -206,6 +208,29 @@ export function rootToggle(): ReactNode {
             },
           ]}
         />
+      </div>
+    </Wrapper>
+  );
+}
+
+export function steps(): ReactNode {
+  return (
+    <Wrapper>
+      <div className="rounded-xl bg-fd-background p-3">
+        <Steps>
+          <Step>
+            <h4>购买咖啡</h4>
+            <p>在这里添加一些文字</p>
+          </Step>
+          <Step>
+            <h4>前往办公室</h4>
+            <p>在这里添加一些文字</p>
+          </Step>
+          <Step>
+            <h4>参加会议</h4>
+            <p>在这里添加一些文字</p>
+          </Step>
+        </Steps>
       </div>
     </Wrapper>
   );

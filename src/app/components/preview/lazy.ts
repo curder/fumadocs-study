@@ -40,3 +40,10 @@ export const RootToggle = dynamic(() =>
     (res) => res.RootToggle
   )
 );
+
+export const Steps = dynamic(() =>
+  import("fumadocs-ui/components/steps").then((res) => res.Steps)
+);
+export const Step = dynamic(() =>
+  import("fumadocs-ui/components/steps").then((res) => res.Step)
+);

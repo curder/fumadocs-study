@@ -1,0 +1,86 @@
+---
+title: 步骤 Steps
+description: 给文档添加步骤
+preview: steps
+---
+
+## 用法 [#usage]
+
+将 `Step` 和 `Steps` 组件添加为 MDX 组件，使用下面的方式初始化。
+
+```tsx title="app/mdx-components.tsx"
+import defaultComponents from "fumadocs-ui/mdx";
+import type { MDXComponents } from "mdx/types";
+import { createGenerator } from "fumadocs-typescript";
+import { Step, Steps } from "fumadocs-ui/components/steps"; //[!code ++]
+
+export function getMDXComponents(components?: MDXComponents): MDXComponents {
+  return {
+    ...defaultComponents,
+    Step, //[!code ++]
+    Steps, //[!code ++]
+    ...components,
+  };
+}
+```
+
+然后就可以将步骤添加到文档中。
+
+```mdx
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+<Steps>
+  <Step>
+
+      ### Hello World
+
+      Some more details.
+
+  </Step>
+
+  <Step>
+  
+      ### Hello World
+
+      Some more details.
+
+  </Step>
+</Steps>
+```
+
+## 使用 div 元素 [#as-div]
+
+除了使用 `Step` 和 `Steps` 组件，也可以使用 `div` 元素来添加步骤。
+
+使用 `fd-steps` 和 `fd-step` 类来添加步骤。
+
+```mdx tab="没有步骤"
+<div className="fd-steps [&_h3]:fd-step">
+
+### Hello World [#hi]
+
+Some more details.
+
+</div>
+```
+
+```mdx tab="更多步骤"
+<div className="fd-steps">
+
+<div className="fd-step">
+
+### Hello World [#hey]
+
+Some more details.
+
+</div>
+
+<div className="fd-step">
+
+### Hello World [#hi]
+
+Some more details.
+
+</div>
+</div>
+```
