@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n";
 import "./global.css";
 import { RootProvider } from "fumadocs-ui/provider";
 import { Inter } from "next/font/google";
@@ -11,7 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <RootProvider>{children}</RootProvider>
+        <RootProvider i18n={i18n}>{children}</RootProvider>
       </body>
     </html>
   );
