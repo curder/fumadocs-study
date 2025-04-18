@@ -1,0 +1,63 @@
+---
+title: 类型表格 TypeTable
+description: 用于记录类型的表
+preview: typeTable
+---
+
+## 用法
+
+`TypeTable` 组件接收 `type` 属性。
+
+```mdx
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+<TypeTable
+  type={{
+    percentage: {
+      description: '滚动位置显示滚动按钮的百分比',
+      type: 'number',
+      default: 0.2,
+    },
+  }}
+/>
+```
+
+## 属性
+
+`TypeTable` 仅能接收 `type` 属性。
+
+<TypeTable
+    type={{
+        type: {
+            type: 'Record<string, ObjectType>',
+            required: true,
+            default: null,
+        },
+    }}
+/>
+
+## 属性值
+
+<TypeTable
+    type={{
+        type: {
+            type: 'string',
+            required: true,
+        },
+        description: {
+            type: 'ReactNode',
+        },
+        typeDescription: {
+            type: 'ReactNode',
+        },
+        typeDescriptionLink: {
+            type: 'string',
+        },
+        default: {
+            type: 'string',
+        },
+        required: {
+            type: 'boolean',
+        }
+    }}
+/>

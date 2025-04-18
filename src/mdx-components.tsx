@@ -2,6 +2,7 @@ import * as icons from 'lucide-react';
 import type { MDXComponents } from 'mdx/types';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import {TypeTable} from "fumadocs-ui/components/type-table";
 import { File, Files, Folder } from 'fumadocs-ui/components/files';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
@@ -17,7 +18,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Folder,
     Accordion,
     Accordions,
-    // AutoTypeTable,
+    TypeTable,
     ...components,
   };
 }
