@@ -7,14 +7,31 @@ description: 使用 Fumadocs 提供的脚手架快速搭建文档网站
 
 需要最低版本 `Node.js 18`。注意 `Node.js 23.1` 生产版本 `Next.js` 可能会出现问题。
 
-使用下面命令中的任意一个命令即可创建项目：
+使用下面命令即可创建项目：
 
-```shell
-yarn create fumadocs-app
-pnpm create fumadocs-app
-npm create fumadocs-app
-bun create fumadocs-app
-```
+<Tabs groupId="language" items={['yarn', 'pnpm', 'npm', 'bun']} persist>
+  <Tab name="yarn">
+    ```shell
+    yarn create fumadocs-app
+    ```
+  </Tab>
+
+  <Tab name="pnpm">
+    ```shell
+    pnpm create fumadocs-app
+    ```
+  </Tab>
+  <Tab name="npm">
+    ```shell
+    npm create fumadocs-app
+    ```
+  </Tab>
+  <Tab name="bun">
+    ```shell
+    bun create fumadocs-app
+    ```
+  </Tab>
+</Tabs>
 
 输入完命令后会提示输入或选择一些问题：
 
@@ -52,13 +69,30 @@ description: This is a description
 ## Yo what's up
 ```
 
-运行下面任意一个命令即可启动开发服务器：
+运行下面命令即可启动开发服务器：
 
-```shell
-yarn dev
-pnpm run dev
-npm run dev
-bun run dev
-```
+<Tabs groupId="language" items={['yarn', 'pnpm', 'npm', 'bun']} persist>
 
-在开发模式下运行应用程序并查看 http://localhost:3000/docs。
+  <Tab name="yarn">
+    ```shell
+    yarn dev
+    ```
+  </Tab>
+  <Tab name="pnpm">
+    ```shell
+    pnpm run dev
+    ```
+  </Tab>
+  <Tab name="npm">
+    ```shell
+    npm run dev
+    ```
+  </Tab>
+  <Tab name="bun">
+    ```shell
+    bun run dev
+    ```
+  </Tab>
+</Tabs>
+
+在开发模式下运行应用程序并查看 http://localhost:3000/docs 

@@ -19,15 +19,16 @@ export const baseOptions: BaseLayoutProps = {
         >
           <circle cx={12} cy={12} r={12} fill="currentColor" />
         </svg>
-        Fumadocs Demo App
+        Fumadocs学习
       </>
     ),
   },
   links: [
     {
-      text: "Documentation",
-      url: "/docs",
+      text: "Get Started",
+      url: "/docs/installation",
       active: "nested-url",
     },
   ],
+  githubUrl: "https://github.com/curder",
 };
