@@ -1,2 +1,2 @@
-export const owner = "laravel";
-export const repo = "laravel";
+export const owner = "curder";
+export const repo = "fumadocs-study";
