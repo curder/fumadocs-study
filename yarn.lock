@@ -479,6 +479,46 @@
   resolved "https://registry.npmmirror.com/@orama/orama/-/orama-3.1.6.tgz#783cff592a20bdcaaab767a52442f78e81129c8c"
   integrity sha512-qtSrqCqRU93SjEBedz987tvWao1YQSELjBhGkHYGVP7Dg0lBWP6d+uZEIt5gxTAYio/YWWlhivmRABvRfPLmnQ==
 
+"@oxc-transform/binding-darwin-arm64@0.53.0":
+  version "0.53.0"
+  resolved "https://registry.npmmirror.com/@oxc-transform/binding-darwin-arm64/-/binding-darwin-arm64-0.53.0.tgz#d6a955dcbc38762272fa12b13fb1c8bb596d8d60"
+  integrity sha512-QG1djnqQ+EywamRwFMRYogmbF4aL+Fmw/tDKuZ4cpWpOBPaxgTNryfYS1WwCARlZLmLzDEZr0YkYSQ7Rmjyf1Q==
+
+"@oxc-transform/binding-darwin-x64@0.53.0":
+  version "0.53.0"
+  resolved "https://registry.npmmirror.com/@oxc-transform/binding-darwin-x64/-/binding-darwin-x64-0.53.0.tgz#0f6fa69e5949a1843a4a113668c77a00f34b524c"
+  integrity sha512-rc6wBTnmeK/ZiENI7QvZBmrgFArAkO8cBpiKrYuov3+DqSbOLotoaYqXxxdjoiJ/EhPl9MBd9146uM99OKQYIA==
+
+"@oxc-transform/binding-linux-arm64-gnu@0.53.0":
+  version "0.53.0"
+  resolved "https://registry.npmmirror.com/@oxc-transform/binding-linux-arm64-gnu/-/binding-linux-arm64-gnu-0.53.0.tgz#cf6105cfebb0921b01cf08c5ad400d2ea47c5d2a"
+  integrity sha512-BgY+h7bQsGP6lsQe4s7stz6SpbfijhiZGx/lPoTYn9wkLonqBVk2bGkPkyZvzd3Sr8aw2taOE6ycb146scyniQ==
+
+"@oxc-transform/binding-linux-arm64-musl@0.53.0":
+  version "0.53.0"
+  resolved "https://registry.npmmirror.com/@oxc-transform/binding-linux-arm64-musl/-/binding-linux-arm64-musl-0.53.0.tgz#a5166e729356345bb243080287f12b16388913bb"
+  integrity sha512-4AnomoFIEqS442s9KJbZRqo+dR9sM0es9YY9eFh+53btN9aKHW+u08Yvesb4k9nmwB5qDZbfqP8H+SsHyixFlg==
+
+"@oxc-transform/binding-linux-x64-gnu@0.53.0":
+  version "0.53.0"
+  resolved "https://registry.npmmirror.com/@oxc-transform/binding-linux-x64-gnu/-/binding-linux-x64-gnu-0.53.0.tgz#42dac46a6c92df566b0085f06f56fc6e57e254a2"
+  integrity sha512-iWFm/ZNEYF5IKN3/gcYaMJUI1yc5iJ2vQ9fVxYAFT6GglnBqXXxqwazlL5QkiAwDOzVwDUctAIZWgxse1vTm2A==
+
+"@oxc-transform/binding-linux-x64-musl@0.53.0":
+  version "0.53.0"
+  resolved "https://registry.npmmirror.com/@oxc-transform/binding-linux-x64-musl/-/binding-linux-x64-musl-0.53.0.tgz#4b8a6ca0eb0cc3af6b78bf47e6bd784078ff4ee5"
+  integrity sha512-fM9tdlBPY55T1s+qdg6NwDLaygXkvxKLfIqojw/pM+pErfnTJXa3MYWIDWEXHv3RcEypjaEMMo3BIe7E2jBDdg==
+
+"@oxc-transform/binding-win32-arm64-msvc@0.53.0":
+  version "0.53.0"
+  resolved "https://registry.npmmirror.com/@oxc-transform/binding-win32-arm64-msvc/-/binding-win32-arm64-msvc-0.53.0.tgz#aa03bd51f97f9f564c7b519ce780548db7033a24"
+  integrity sha512-Afh37KNowRgdDtV6EL4IxWBv/l5/XLctXADOCAvYNUsiUwQ2vNKiNwx+k8QzMZW59G5JEIN8yroMd/qnQSpdJw==
+
+"@oxc-transform/binding-win32-x64-msvc@0.53.0":
+  version "0.53.0"
+  resolved "https://registry.npmmirror.com/@oxc-transform/binding-win32-x64-msvc/-/binding-win32-x64-msvc-0.53.0.tgz#ca1e3975b31747ddd2530307e0dc64853647f656"
+  integrity sha512-aYUx/uFCIdQJVOqEpV3AjOSBlZKLSFtws4B/iJpyJ6pKiLBQsH/sR4Y4oKm2rkaqAky+0ekP6gbjIgrJkCZR0Q==
+
 "@radix-ui/number@1.1.1":
   version "1.1.1"
   resolved "https://registry.npmmirror.com/@radix-ui/number/-/number-1.1.1.tgz#7b2c9225fbf1b126539551f5985769d0048d9090"
@@ -2370,6 +2410,18 @@ fumadocs-core@15.2.7:
     shiki "^3.2.2"
     unist-util-visit "^5.0.0"
 
+fumadocs-docgen@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmmirror.com/fumadocs-docgen/-/fumadocs-docgen-2.0.0.tgz#4e7acfe897911c744914d428d3fc90cd412e9662"
+  integrity sha512-jaM/rsCFEvC8rO6Nf0sYXDHp1xOWPAaz0zJHyFyt/CWFSj/nnBaeVIjN/bFX3ZUb93Nnx0I3s42NzAHYKsZI0w==
+  dependencies:
+    estree-util-to-js "^2.0.0"
+    estree-util-value-to-estree "^3.3.2"
+    npm-to-yarn "^3.0.1"
+    oxc-transform "^0.53.0"
+    unist-util-visit "^5.0.0"
+    zod "^3.24.2"
+
 fumadocs-mdx@11.6.0:
   version "11.6.0"
   resolved "https://registry.npmmirror.com/fumadocs-mdx/-/fumadocs-mdx-11.6.0.tgz#0785defc8df85f0e7e40a3c320defaf0d43eeadf"
@@ -3829,6 +3881,11 @@ next@15.3.0:
     "@next/swc-win32-x64-msvc" "15.3.0"
     sharp "^0.34.1"
 
+npm-to-yarn@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmmirror.com/npm-to-yarn/-/npm-to-yarn-3.0.1.tgz#d1ed47551321ad5cd51342729fe21c8146644529"
+  integrity sha512-tt6PvKu4WyzPwWUzy/hvPFqn+uwXO0K1ZHka8az3NnrhWJDmSqI8ncWq0fkL0k/lmmi5tAC11FXwXuh0rFbt1A==
+
 object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.npmmirror.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
@@ -3937,6 +3994,20 @@ own-keys@^1.0.1:
     get-intrinsic "^1.2.6"
     object-keys "^1.1.1"
     safe-push-apply "^1.0.0"
+
+oxc-transform@^0.53.0:
+  version "0.53.0"
+  resolved "https://registry.npmmirror.com/oxc-transform/-/oxc-transform-0.53.0.tgz#e67e4f00bf49b58e8194db966aa3a5d2a04de23b"
+  integrity sha512-ovYJDZfHNLyXlkJBT0HTNHDPHp4JlyG+NePCLrGRT4c1xXOPZ1TWy8xu2shOuLo6n6fiMbpqZha3Ne7C8H7OJA==
+  optionalDependencies:
+    "@oxc-transform/binding-darwin-arm64" "0.53.0"
+    "@oxc-transform/binding-darwin-x64" "0.53.0"
+    "@oxc-transform/binding-linux-arm64-gnu" "0.53.0"
+    "@oxc-transform/binding-linux-arm64-musl" "0.53.0"
+    "@oxc-transform/binding-linux-x64-gnu" "0.53.0"
+    "@oxc-transform/binding-linux-x64-musl" "0.53.0"
+    "@oxc-transform/binding-win32-arm64-msvc" "0.53.0"
+    "@oxc-transform/binding-win32-x64-msvc" "0.53.0"
 
 p-limit@^3.0.2:
   version "3.1.0"

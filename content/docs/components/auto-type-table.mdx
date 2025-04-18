@@ -1,0 +1,89 @@
+---
+title: "自动表格类型 AutoTypeTable"
+description: "自动生成表格类型"
+preview: autoTypeTable
+---
+
+## 用法 [#usage]
+
+使用下面的命令安装 `fumadocs-typescript` 包：
+
+```package-install
+fumadocs-typescript
+```
+
+将 `AutoTypeTable` 组件添加为 MDX 组件，使用下面的方式初始化。
+
+```tsx title="src/mdx-components.tsx"
+import defaultComponents from "fumadocs-ui/mdx";
+import type { MDXComponents } from "mdx/types";
+import { createGenerator } from "fumadocs-typescript";
+import { AutoTypeTable } from "fumadocs-typescript/ui"; // [!code ++] [!code focus]
+
+const generator = createGenerator(); // [!code ++] [!code focus]
+
+export function getMDXComponents(components?: MDXComponents): MDXComponents {
+  return {
+    ...defaultComponents,
+    AutoTypeTable: (
+      props // [!code ++] [!code focus]
+    ) => (
+      <AutoTypeTable {...props} generator={generator} /> // [!code ++] [!code focus]
+    ), // [!code ++] [!code focus]
+    ...components,
+  };
+}
+```
+
+### 从文件中渲染表格 `file` [#from-file]
+
+它接受一个指向 typescript 文件的 `path` 属性，并使用类型名称 `name` 来指定对应类型 `type` 或接口 `interface`。
+
+```ts title="./content/docs/props.ts"
+export interface MyInterface {
+  name: string;
+  age?: number;
+  isAdmin: boolean;
+}
+```
+
+```mdx
+<AutoTypeTable path="./content/docs/props.ts" name="MyInterface" />
+```
+
+<Callout type="warn" title="仅服务器组件">
+  不允许在 `Client` 端组件中使用它。
+</Callout>
+
+### 从类型中渲染表格 `type` [#from-type]
+
+它接受一个 `type` 属性，用于指定要生成的类型，而无需实际的 TypeScript 文件。
+
+```mdx
+import { AutoTypeTable } from "fumadocs-typescript/ui";
+
+<AutoTypeTable type="{ hello: string }" />
+```
+
+也可以同时使用 `path` 和 `type` 属性。
+
+```ts title="./content/docs/props.ts"
+export type A = { hello: string };
+```
+
+```mdx
+<AutoTypeTable path="./content/docs/props.ts" type="A & {default?: string}" />
+```
+
+使用文件中类型的同时，也可以使用 `type` 属性来添加额外的类型。
+
+当 `type` 属性有多行时，需要使用模板字符串来包裹。
+
+```mdx
+<AutoTypeTable
+  type={`
+    import { ReactNode } from "react"
+    export type B = ReactNode & { world: string }
+`}
+/>
+```

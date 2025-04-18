@@ -7,6 +7,7 @@ import {
   rehypeCodeDefaultOptions,
   remarkAdmonition,
 } from "fumadocs-core/mdx-plugins";
+import { remarkInstall } from "fumadocs-docgen";
 import {
   transformerNotationFocus,
   transformerMetaHighlight,
@@ -45,6 +46,6 @@ export default defineConfig({
         transformerMetaWordHighlight(),
       ],
     },
-    remarkPlugins: [remarkAdmonition],
+    remarkPlugins: [remarkAdmonition, remarkInstall],
   },
 });
