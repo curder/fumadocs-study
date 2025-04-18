@@ -58,3 +58,8 @@ export type InlineTocProps = Omit<
   ComponentPropsWithoutRef<typeof InlineTOC>,
   keyof ComponentPropsWithoutRef<"div">
 >;
+
+export type rootToggleProps = Omit<
+  ComponentPropsWithoutRef<typeof InlineTOC>,
+  keyof ComponentPropsWithoutRef<"div">
+>;

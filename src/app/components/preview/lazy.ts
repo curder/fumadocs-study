@@ -34,3 +34,9 @@ export const ImageZoom = dynamic(() =>
 export const InlineTOC = dynamic(() =>
   import("fumadocs-ui/components/inline-toc").then((res) => res.InlineTOC)
 );
+
+export const RootToggle = dynamic(() =>
+  import("fumadocs-ui/components/layout/root-toggle").then(
+    (res) => res.RootToggle
+  )
+);

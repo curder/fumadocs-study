@@ -1,0 +1,41 @@
+---
+title: "页面切换 RootToggle"
+description: "使用它来切换页面的根节点"
+preview: rootToggle
+---
+
+## 用法 [#usage]
+
+可以将此组件添加到侧边栏或所需的其他位置。
+
+```tsx title="src/app/docs/layout.tsx"
+import { RootToggle } from "fumadocs-ui/components/layout/root-toggle"; // [!code ++]
+
+<DocsLayout
+  // [!code ++:18]
+  sidebar={{
+    banner: (
+      <RootToggle
+        options={[
+          {
+            title: "Folder 1",
+            description: "Pages in folder 1",
+            url: "/docs/image",
+          },
+          {
+            title: "Folder 2",
+            description: "Pages in folder 2",
+            url: "/docs",
+          },
+        ]}
+      />
+    ),
+  }}
+>
+  {children}
+</DocsLayout>;
+```
+
+## 常用参数 [#props]
+
+<AutoTypeTable path="./content/docs/props.ts" name="rootToggleProps" />

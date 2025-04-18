@@ -14,6 +14,7 @@ import {
   Accordion,
   Accordions,
   InlineTOC,
+  RootToggle,
 } from "@/app/components/preview/lazy";
 import Wrapper from "@/app/components/preview/wrapper";
 import BannerImage from "@/public/images/banner.png";
@@ -183,6 +184,29 @@ export function inlineToc(): ReactNode {
       >
         文档目录
       </InlineTOC>
+    </Wrapper>
+  );
+}
+export function rootToggle(): ReactNode {
+  return (
+    <Wrapper>
+      <div className="not-prose mx-auto grid max-w-[240px] rounded-lg bg-fd-background">
+        <RootToggle
+          className="p-3"
+          options={[
+            {
+              title: "Hello World",
+              description: "根切换组件的示例项",
+              url: "/docs",
+            },
+            {
+              title: "Other page",
+              description: "根切换组件的示例项",
+              url: "/docs/image",
+            },
+          ]}
+        />
+      </div>
     </Wrapper>
   );
 }
