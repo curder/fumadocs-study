@@ -3,13 +3,15 @@ import type {
   AnchorHTMLAttributes,
   ImgHTMLAttributes,
 } from "react";
-import { TypeTable } from "fumadocs-ui/components/type-table";
-import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
-import { Banner } from "fumadocs-ui/components/banner";
-import { File, Folder } from "fumadocs-ui/components/files";
-import { GithubInfo } from "fumadocs-ui/components/github-info";
-import { ImageZoom } from "fumadocs-ui/components/image-zoom";
-import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import type { TypeTable } from "fumadocs-ui/components/type-table";
+import type { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import type { Banner } from "fumadocs-ui/components/banner";
+import type { File, Folder } from "fumadocs-ui/components/files";
+import type { GithubInfo } from "fumadocs-ui/components/github-info";
+import type { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import type { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import type { RootToggle } from "fumadocs-ui/components/layout/root-toggle";
+import type { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
 export type TypeTableProps = ComponentPropsWithoutRef<typeof TypeTable>;
 
@@ -60,6 +62,16 @@ export type InlineTocProps = Omit<
 >;
 
 export type rootToggleProps = Omit<
-  ComponentPropsWithoutRef<typeof InlineTOC>,
+  ComponentPropsWithoutRef<typeof RootToggle>,
+  keyof ComponentPropsWithoutRef<"div">
+>;
+
+export type tabsProps = Omit<
+  ComponentPropsWithoutRef<typeof Tabs>,
+  keyof ComponentPropsWithoutRef<"div">
+>;
+
+export type tabProps = Omit<
+  ComponentPropsWithoutRef<typeof Tab>,
   keyof ComponentPropsWithoutRef<"div">
 >;
