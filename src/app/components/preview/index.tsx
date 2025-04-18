@@ -5,6 +5,7 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { createGenerator } from "fumadocs-typescript";
 import { Banner } from "fumadocs-ui/components/banner";
+import { File, Files, Folder } from "fumadocs-ui/components/files";
 
 export function accordion(): ReactNode {
   return (
@@ -102,6 +103,29 @@ export function banner(): ReactNode {
           Be careful, this banner can be closed
         </Banner>
       </div>
+    </Wrapper>
+  );
+}
+
+export function files(): ReactNode {
+  return (
+    <Wrapper>
+      <Files>
+        <Folder name="app" defaultOpen>
+          <Folder name="[id]" defaultOpen>
+            <File name="page.tsx" />
+          </Folder>
+          <File name="layout.tsx" />
+          <File name="page.tsx" />
+          <File name="global.css" />
+        </Folder>
+        <Folder name="components">
+          <File name="button.tsx" />
+          <File name="tabs.tsx" />
+          <File name="dialog.tsx" />
+        </Folder>
+        <File name="package.json" />
+      </Files>
     </Wrapper>
   );
 }

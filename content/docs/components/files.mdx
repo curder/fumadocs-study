@@ -1,0 +1,123 @@
+---
+title: "文件树 Files"
+description: "在文档住编写文档树"
+preview: files
+---
+
+## 用法
+
+将 `Files`、`Folder` 和 `File` 组件添加为 MDX 组件，使用下面的方式初始化。
+
+```tsx
+import defaultComponents from "fumadocs-ui/mdx";
+import type { MDXComponents } from "mdx/types";
+import { createGenerator } from "fumadocs-typescript";
+import { File, Files, Folder } from "fumadocs-ui/components/files"; // [!code ++] [!code focus]
+
+export function getMDXComponents(components?: MDXComponents): MDXComponents {
+  return {
+    ...defaultComponents,
+    File, // [!code ++] [!code focus]
+    Files, // [!code ++] [!code focus]
+    Folder, // [!code ++] [!code focus]
+    ...components,
+  };
+}
+```
+
+将 `File` 组件放在 `Files` 组件中，使用下面的方式初始化。
+
+```mdx
+import { File, Folder, Files } from "fumadocs-ui/components/files";
+
+<Files>
+  <Folder name="app" defaultOpen>
+    <File name="layout.tsx" />
+    <File name="page.tsx" />
+    <File name="global.css" />
+  </Folder>
+  <Folder name="components">
+    <File name="button.tsx" />
+    <File name="tabs.tsx" />
+    <File name="dialog.tsx" />
+  </Folder>
+  <File name="package.json" />
+</Files>
+```
+
+### 展开目录 `defaultOpen` [#open-folder]
+
+通过 `defaultOpen` 属性展开目录。
+
+```mdx /defaultOpen/
+import { File, Folder } from "fumadocs-ui/components/files";
+
+<Folder name="app" defaultOpen>
+  <File name="layout.tsx" />
+  <File name="page.tsx" />
+  <File name="global.css" />
+</Folder>
+```
+
+### 禁用目录 `disabled` [#disabled-folder]
+
+通过 `disabled` 属性禁用目录。
+
+```mdx /disabled/
+import { File, Folder } from "fumadocs-ui/components/files";
+
+<Folder name="app" disabled>
+  <File name="layout.tsx" />
+  <File name="page.tsx" />
+  <File name="global.css" />
+</Folder>
+```
+
+### 自定义文件图标 `icon` [#custom-icon]
+
+使用 `lucide-react` 库中的图标。
+
+1. 安装 `lucide-react` 库。
+
+   ```package-install
+   lucide-react
+   ```
+
+2. 在 `src/mdx-componets.tsx` 中注册所有 `lucide` 图标。
+
+   ```tsx
+   import * as icons from "lucide-react"; // [!code ++] [!code focus]
+   import type { MDXComponents } from "mdx/types";
+   import defaultMdxComponents from "fumadocs-ui/mdx";
+
+   // use this function to get MDX components, you will need it for rendering MDX
+   export function getMDXComponents(components?: MDXComponents): MDXComponents {
+     return {
+       ...(icons as unknown as MDXComponents), // [!code ++] [!code focus]
+       ...defaultMdxComponents,
+       ...components,
+     };
+   }
+   ```
+
+3. 通过 `icon` 属性自定义文件/目录图标。
+
+   ```mdx /custom-icon/
+   import { File, Folder } from "fumadocs-ui/components/files";
+
+   <File name="layout.ts" icon={<LayoutDashboard />} />
+   ```
+
+## 常用属性 [#common-props]
+
+### Files [#files-props]
+
+<AutoTypeTable type="{className?: string}" />
+
+### File [#file-props]
+
+<AutoTypeTable path="./content/docs/props.ts" name="FileProps" />
+
+### Folder [#folder-props]
+
+<AutoTypeTable path="./content/docs/props.ts" name="FolderProps" />
