@@ -9,6 +9,7 @@ import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { Banner } from "fumadocs-ui/components/banner";
 import { createGenerator } from "fumadocs-typescript";
+import { ImageZoom } from "fumadocs-ui/components/image-zoom";
 
 const generator = createGenerator();
 
@@ -17,6 +18,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     ...(icons as unknown as MDXComponents),
     ...defaultMdxComponents,
+    img: (props) => <ImageZoom {...props} />,
     Tab,
     Tabs,
     File,

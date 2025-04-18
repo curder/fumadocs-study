@@ -1,9 +1,14 @@
-import type { ComponentPropsWithoutRef, AnchorHTMLAttributes } from "react";
+import type {
+  ComponentPropsWithoutRef,
+  AnchorHTMLAttributes,
+  ImgHTMLAttributes,
+} from "react";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Banner } from "fumadocs-ui/components/banner";
 import { File, Folder } from "fumadocs-ui/components/files";
 import { GithubInfo } from "fumadocs-ui/components/github-info";
+import { ImageZoom } from "fumadocs-ui/components/image-zoom";
 
 export type TypeTableProps = ComponentPropsWithoutRef<typeof TypeTable>;
 
@@ -40,4 +45,10 @@ export type GithubInfoProps = Omit<
   ComponentPropsWithoutRef<typeof GithubInfo>,
   | keyof ComponentPropsWithoutRef<"div">
   | keyof AnchorHTMLAttributes<HTMLAnchorElement>
+>;
+
+export type ImageZoomProps = Omit<
+  ComponentPropsWithoutRef<typeof ImageZoom>,
+  | keyof ComponentPropsWithoutRef<"div">
+  | keyof ImgHTMLAttributes<HTMLImageElement>
 >;

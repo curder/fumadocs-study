@@ -8,6 +8,8 @@ import { Banner } from "fumadocs-ui/components/banner";
 import { File, Files, Folder } from "fumadocs-ui/components/files";
 import { GithubInfo } from "fumadocs-ui/components/github-info";
 import { owner, repo } from "@/lib/github";
+import { ImageZoom } from "@/app/components/preview/lazy";
+import BannerImage from "@/public/images/banner.png";
 
 export function accordion(): ReactNode {
   return (
@@ -132,7 +134,7 @@ export function files(): ReactNode {
   );
 }
 
-export function githubInfo() {
+export function githubInfo(): ReactNode {
   return (
     <Wrapper>
       <GithubInfo
@@ -140,6 +142,19 @@ export function githubInfo() {
         repo={repo}
         token={process.env.GITHUB_TOKEN}
         className="not-prose bg-fd-card"
+      />
+    </Wrapper>
+  );
+}
+
+export function imageZoom(): ReactNode {
+  return (
+    <Wrapper>
+      <ImageZoom
+        alt="banner"
+        src={BannerImage}
+        className="!my-0 rounded-xl bg-fd-background"
+        priority
       />
     </Wrapper>
   );
