@@ -14,7 +14,7 @@ import { Card, Cards } from "fumadocs-ui/components/card";
 import { getPageTreePeers } from "fumadocs-core/server";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { createGenerator } from "fumadocs-typescript";
-import { repo, owner } from "@/lib/github";
+import { repo, owner, branch } from "@/lib/github";
 
 function PreviewRenderer({ preview }: { preview: string }): ReactNode {
   if (preview && preview in Preview) {
@@ -37,12 +37,13 @@ export default async function Page(props: {
   const preview = page.data.preview;
   const MDXContent = page.data.body;
   const path = `content/docs/${page.file.path}`;
+
   return (
     <DocsPage
       editOnGithub={{
         repo,
         owner,
-        sha: "master",
+        sha: branch,
         path,
       }}
       toc={page.data.toc}
