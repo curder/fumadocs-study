@@ -12,8 +12,8 @@ import * as Preview from "@/app/components/preview";
 import { ReactNode } from "react";
 import { Card, Cards } from "fumadocs-ui/components/card";
 import { getPageTreePeers } from "fumadocs-core/server";
-import {AutoTypeTable} from "fumadocs-typescript/ui";
-import { createGenerator } from 'fumadocs-typescript';
+import { AutoTypeTable } from "fumadocs-typescript/ui";
+import { createGenerator } from "fumadocs-typescript";
 
 function PreviewRenderer({ preview }: { preview: string }): ReactNode {
   if (preview && preview in Preview) {

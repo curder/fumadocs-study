@@ -13,6 +13,7 @@ import {
   TypeTable,
   Accordion,
   Accordions,
+  InlineTOC,
 } from "@/app/components/preview/lazy";
 import Wrapper from "@/app/components/preview/wrapper";
 import BannerImage from "@/public/images/banner.png";
@@ -162,6 +163,26 @@ export function imageZoom(): ReactNode {
         className="!my-0 rounded-xl bg-fd-background"
         priority
       />
+    </Wrapper>
+  );
+}
+
+export function inlineToc(): ReactNode {
+  return (
+    <Wrapper>
+      <InlineTOC
+        items={[
+          { title: "欢迎", url: "#welcome", depth: 2 },
+          { title: "现在开始", url: "#getting-started", depth: 3 },
+          { title: "使用", url: "#usage", depth: 3 },
+          { title: "样式", url: "#styling", depth: 3 },
+          { title: "引用", url: "#reference", depth: 2 },
+          { title: "组件", url: "#components", depth: 3 },
+          { title: "APIs", url: "#api", depth: 3 },
+        ]}
+      >
+        文档目录
+      </InlineTOC>
     </Wrapper>
   );
 }

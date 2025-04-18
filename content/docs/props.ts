@@ -9,6 +9,7 @@ import { Banner } from "fumadocs-ui/components/banner";
 import { File, Folder } from "fumadocs-ui/components/files";
 import { GithubInfo } from "fumadocs-ui/components/github-info";
 import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import { InlineTOC } from "fumadocs-ui/components/inline-toc";
 
 export type TypeTableProps = ComponentPropsWithoutRef<typeof TypeTable>;
 
@@ -51,4 +52,9 @@ export type ImageZoomProps = Omit<
   ComponentPropsWithoutRef<typeof ImageZoom>,
   | keyof ComponentPropsWithoutRef<"div">
   | keyof ImgHTMLAttributes<HTMLImageElement>
+>;
+
+export type InlineTocProps = Omit<
+  ComponentPropsWithoutRef<typeof InlineTOC>,
+  keyof ComponentPropsWithoutRef<"div">
 >;

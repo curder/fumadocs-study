@@ -30,3 +30,7 @@ export const Folder = dynamic(() =>
 export const ImageZoom = dynamic(() =>
   import("fumadocs-ui/components/image-zoom").then((res) => res.ImageZoom)
 );
+
+export const InlineTOC = dynamic(() =>
+  import("fumadocs-ui/components/inline-toc").then((res) => res.InlineTOC)
+);

@@ -6,6 +6,7 @@
     "banner",
     "files",
     "github-info",
-    "image-zoom"
+    "image-zoom",
+    "inline-toc"
   ]
 }
