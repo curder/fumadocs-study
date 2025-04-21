@@ -4,8 +4,6 @@ const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const config = {
-  basePath: "/fumadocs-study",
-  output: "export",
   reactStrictMode: true,
 };
 
